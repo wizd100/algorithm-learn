@@ -5,25 +5,34 @@ import java.util.Scanner;
 public class p1096 {
     public static void main(String[] args) {
         int inputNum;
-        int[][] inputNumArr;
+        int[] x;
+        int[] y;
         int[][] go = new int[19][19];
 
         Scanner scanner = new Scanner(System.in);
         inputNum = scanner.nextInt();
-        inputNumArr = new int[19][2];
+        x = new int[inputNum];
+        y = new int[inputNum];
 
-        //좌표값 입력
         for (int i = 0; i < inputNum; i++) {
-            inputNumArr[i][0] = scanner.nextInt() - 1;
-            inputNumArr[i][1] = scanner.nextInt() - 1;
+            x[i] = scanner.nextInt() - 1;
+            y[i] = scanner.nextInt() - 1;
         }
 
         for (int i = 0; i < go.length; i++) {
             for (int j = 0; j < go[i].length; j++) {
-                if (inputNumArr[i][0] == i && inputNumArr[i][1] == j) {
-                    System.out.printf("%d ", 1);
+                boolean flag = false;
+
+                for (int k = 0; k < inputNum; k++) {
+                    if (i == x[k] && j == y[k]) {
+                        flag = true;
+                    }
+                }
+
+                if (flag) {
+                    System.out.print("1 ");
                 } else {
-                    System.out.printf("%d ", 0);
+                    System.out.print("0 ");
                 }
             }
             System.out.print("\n");
