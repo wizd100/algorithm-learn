@@ -2,7 +2,7 @@ package codeup;
 
 import java.util.Scanner;
 
-public class p1903 {
+public class p1904 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
