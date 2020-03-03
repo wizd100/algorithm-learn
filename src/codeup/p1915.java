@@ -5,23 +5,22 @@ import java.util.Scanner;
 public class p1915 {
     public static void main(String[] args) {
         int fibonacci;
-        int startNum = 1;
-        int nextNum = 1;
-        int count = 2;
         int maxCount;
 
         Scanner scanner = new Scanner(System.in);
         maxCount = scanner.nextInt();
-        fibonacci = recursion(startNum, nextNum, count, maxCount);
+        fibonacci = recursion(maxCount);
         System.out.printf("%d", fibonacci);
     }
 
-    public static int recursion(int startNum, int nextNum, int count, int maxNum) {
-
-        if (count > maxNum) {
-            return startNum;
+    public static int recursion(int maxCount) {
+        if (maxCount == 0) {
+            return 0;
         }
-        count++;
-        return recursion(nextNum, startNum + nextNum, count, maxNum);
+        if (maxCount == 1) {
+            return 1;
+        }
+
+        return recursion(maxCount - 1) + recursion(maxCount - 2);
     }
 }
