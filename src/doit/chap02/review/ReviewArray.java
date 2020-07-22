@@ -35,12 +35,15 @@ public class ReviewArray {
     }
 
     //배열의 요소를 역순으로 변경
+    static void swap(int[] a, int idx1, int idx2) {
+        int temp = a[idx1];
+        a[idx1] = a[idx2];
+        a[idx2] = temp;
+    }
+
     static int[] reverse(int[] a) {
-        int temp;
         for (int i = 0; i < a.length / 2; i++) {
-            temp = a[i];
-            a[i] = a[a.length - i - 1];
-            a[a.length - i - 1] = temp;
+            swap(a, i, a.length - i - 1);
         }
         return a;
     }
@@ -57,7 +60,6 @@ public class ReviewArray {
 
         System.out.println("요소는 : " + num);
         for (int i = 0; i < num; i++) {
-            //System.out.println("a[" + i + "] : " + a[i]);
             System.out.print(a[i] + " ");
         }
         System.out.println();
@@ -68,7 +70,6 @@ public class ReviewArray {
         System.out.println("역순으로 출력");
         reverse(a);
         for (int i = 0; i < num; i++) {
-            //System.out.println("a[" + i + "] : " + a[i]);
             System.out.print(a[i] + " ");
         }
     }
