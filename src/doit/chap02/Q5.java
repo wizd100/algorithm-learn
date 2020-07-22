@@ -3,24 +3,10 @@ package doit.chap02;
 import java.util.Random;
 
 public class Q5 {
-    static void swap(int[] b, int idx1, int idx2) {
-        int temp = b[idx1];
-        b[idx1] = b[idx2];
-        b[idx2] = temp;
-    }
-
-    static void reverse(int[] b) {
-        for (int i = 0; i < b.length / 2; i++) {
-            swap(b, i, b.length - i - 1);
-        }
-    }
-
     static void rcopy(int[] a, int[] b) {
-        reverse(b);
-
         int num = a.length <= b.length ? a.length : b.length;
         for (int i = 0; i < num; i++) {
-            a[i] = b[i];
+            a[i] = b[b.length - i - 1];
         }
     }
 
