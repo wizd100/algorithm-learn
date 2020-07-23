@@ -20,20 +20,15 @@ public class Q9 {
     }
 
     //그 해 남은 일 수 계산
-    //그 해의 전체일 수 - 그 해 경과한 일 수 = 남은 일 수
+    //평년/윤년 계산하는 함수가 있음으로 365 + 평년/윤년 - 경과일 = 남은 일
     static int leftDayOfYear(int year, int month, int day) {
-        int allDays = 0;
         int days = day;
-
-        for (int i = 0; i < 12; i++) {
-            allDays += mdays[isLeap(year)][i];
-        }
 
         for (int i = 1; i < month; i++) {
             days += mdays[isLeap(year)][i - 1];
         }
 
-        return allDays - days;
+        return 365 + isLeap(year) - days;
     }
 
     public static void main(String[] args) {
