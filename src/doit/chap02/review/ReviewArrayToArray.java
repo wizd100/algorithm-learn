@@ -31,6 +31,37 @@ public class ReviewArrayToArray {
         }
     }
 
+    static int cardConv(int n, int r, char[] d) {
+        int digits = 0;
+        String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        while (n != 0) {
+            d[digits++] = dchar.charAt(n % r);
+            n /= r;
+        }
+
+        return digits;
+    }
+
+    //보기 편하게 앞번호 부터 집어넣게끔
+    static int cardConvRev(int n, int r, char[] d) {
+        int digits = 0;
+        String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        while (n != 0) {
+            d[digits++] = dchar.charAt(n % r);
+            n /= r;
+        }
+
+        for (int i = 0; i < digits / 2; i++) {
+            char temp = d[i];
+            d[i] = d[digits - i - 1];
+            d[digits - i - 1] = temp;
+        }
+
+        return digits;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -74,6 +105,22 @@ public class ReviewArrayToArray {
         }
         System.out.println();
 
+        System.out.println("10진수를 2~36진수로 변환하는 함수");
+        System.out.print("10진수 입력 : ");
+        int n = scanner.nextInt();
+        System.out.print("변환할려는 진수값 입력 : ");
+        int r = scanner.nextInt();
+        char[] d = new char[32];
+        System.out.print(n + " 의 " + r + "진수 -> ");
+        int dno = cardConv(n, r, d);
+        for (int i = dno - 1; i >= 0; i--) {
+            System.out.print(d[i]);
+        }
 
+        System.out.println();
+        int dno2 = cardConvRev(n, r, d);
+        for (int i = 0; i < dno2; i++) {
+            System.out.print(d[i]);
+        }
     }
 }
