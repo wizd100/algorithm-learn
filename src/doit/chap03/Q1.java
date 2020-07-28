@@ -4,16 +4,19 @@ import java.util.Scanner;
 
 public class Q1 {
     // 보초법 선형검색을 for문으로
-    static int seqSearchSen(int[] a, int key) {
+    static int seqSearchSen(int[] a, int n, int key) {
         int i;
 
-        for (i = 0; i < a.length; i++) {
-            if (a[i] == key) {
-                break;
-            }
+        a[n] = key; // 보초법 맨뒤에 값을 입력
+
+
+        for (i = 0; a[i] != key; i++) {
+
         }
 
-        return i == a.length ? -1 : i;
+        //System.out.println(a.length + " " + n + " " + i);
+
+        return i == n ? -1 : i;
     }
 
     public static void main(String[] args) {
@@ -30,9 +33,8 @@ public class Q1 {
 
         System.out.print("검색할 값 입력 : ");
         int ky = scanner.nextInt();
-        a[num] = ky;
 
-        int idx = seqSearchSen(a, ky);
+        int idx = seqSearchSen(a, num, ky);
 
         if (idx == -1) {
             System.out.println("검색 값이 없습니다");
