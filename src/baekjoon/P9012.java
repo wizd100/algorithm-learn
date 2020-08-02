@@ -17,21 +17,32 @@ public class P9012 {
 
         String s;
         String[] arr;
+        int ptr;
+
         for (int i = 0; i < T; i++) {
             s = scanner.nextLine();
             arr = s.split("");
+            ptr = arr.length;
 
             //짝수가 아니면 vps가 아님
-            if (arr.length % 2 != 0) {
+            if (ptr % 2 != 0) {
                 System.out.println("NO");
-                break;
+                continue;
             }
             //맨 마지막 값이 )이 아니면 vps가 아님
-            if (!arr[arr.length - 1].equals(")")) {
+            if (!arr[ptr - 1].equals(")")) {
                 System.out.println("NO )");
-                break;
+                continue;
             }
-            
+
+            while (true) {
+                if (arr[ptr - 1].equals(")")) {
+                    ptr--;
+                    if (arr[ptr].equals("(")) {
+                        ptr--;
+                    }
+                }
+            }
         }
     }
 }
