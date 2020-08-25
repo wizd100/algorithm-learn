@@ -1,7 +1,6 @@
 package doit.chap02;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Q1 {
     static int maxOf(int[] a) {

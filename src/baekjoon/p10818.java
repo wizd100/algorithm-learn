@@ -1,6 +1,5 @@
 package baekjoon;
 
-import java.util.Scanner;
 import java.io.*;
 
 public class p10818 {
