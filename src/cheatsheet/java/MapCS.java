@@ -14,7 +14,7 @@ import java.util.Iterator;
 *
 * 어디서 쓰일까?
 *
-* 
+*
 * */
 public class MapCS {
     public static void main(String[] args) {
@@ -74,8 +74,23 @@ public class MapCS {
         System.out.println("--- remove");
 
         //검색
+        //키값으로 찾고 true false 리턴
+        System.out.println(map1.containsKey("a"));
+        System.out.println("--- containsKey");
+
+        //값으로 찾고 true false 리턴
+        System.out.println(map1.containsValue(4));
+        System.out.println("--- containsValue");
+
 
         //응용
+        //키가 없다면 null 리턴
+        System.out.println(map1.get("d"));
+        System.out.println("--- null return");
+
+        //값에서 -> 키를 찾을려는 경우에는 함수는 없고 for문 돌려서 equals로 찾아야 됨
+
+
 
 
     }
