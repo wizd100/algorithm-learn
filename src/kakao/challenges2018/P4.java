@@ -206,6 +206,6 @@ public class P4 {
     }
 
     public static String intTimeToStringTimeFormat(int time) {
-        return String.format("%02d:%02d", time / 60, time % 60) + ":" + String.format("%02d", time % 60);
+        return String.format("%02d:%02d", time / 60, time % 60);
     }
 }
