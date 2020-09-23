@@ -31,9 +31,7 @@ public class P2775 {
                     continue;
                 }
 
-                for (int l = 0; l <= j; l++) {
-                    apt[i][j] += apt[i - 1][l];
-                }
+                apt[i][j] = apt[i - 1][j] + apt[i][j - 1];
             }
         }
 
