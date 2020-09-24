@@ -20,9 +20,6 @@ public class P2775 {
                 if (i == 0) {
                     apt[i][j] = j + 1;
                     continue;
-                } else if (i == 1) {
-                    apt[i][j] = ((j + 2) * (j + 1)) / 2;
-                    continue;
                 } else if (j == 0) {
                     apt[i][j] = 1;
                     continue;
@@ -31,7 +28,7 @@ public class P2775 {
                     continue;
                 }
 
-                apt[i][j] = apt[i - 1][j] + apt[i][j - 1];
+                //apt[i][j] = apt[i - 1][j] + apt[i][j - 1];
             }
         }
 
