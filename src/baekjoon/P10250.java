@@ -19,17 +19,22 @@ public class P10250 {
         for (int i = 0; i < T; i++) {
             //N 번째 방번호 찾기
             //호를 고정으로 하고 층만 올라감
-            int count = 1;
-            forout:
-            for (int k = 1; k <= W[i]; k++) {
-                for (int j = 1; j <= H[i]; j++) {
-                    if (N[i] == count) {
-                        System.out.printf("%d%02d\n", j, k);
-                        break forout;
-                    }
-                    count++;
+            System.out.println(searchRoom(H[i], W[i], N[i]));
+        }
+    }
+
+    public static int searchRoom(int H, int W, int N) {
+        int count = 1;
+
+        for (int k = 1; k <= W; k++) {
+            for (int j = 1; j <= H; j++) {
+                if (N == count) {
+                    return Integer.parseInt(String.format("%d%02d", j, k));
                 }
+                count++;
             }
         }
+
+        return 0;
     }
 }
