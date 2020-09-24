@@ -6,20 +6,16 @@ public class P10250 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
-        int[] H = new int[T];
-        int[] W = new int[T];
-        int[] N = new int[T];
+        int H;
+        int W;
+        int N;
 
         for (int i = 0; i < T; i++) {
-            H[i] = sc.nextInt();
-            W[i] = sc.nextInt();
-            N[i] = sc.nextInt();
-        }
+            H = sc.nextInt();
+            W = sc.nextInt();
+            N = sc.nextInt();
 
-        for (int i = 0; i < T; i++) {
-            //N 번째 방번호 찾기
-            //호를 고정으로 하고 층만 올라감
-            System.out.println(searchRoom(H[i], W[i], N[i]));
+            System.out.println(searchRoom(H, W, N));
         }
     }
 
