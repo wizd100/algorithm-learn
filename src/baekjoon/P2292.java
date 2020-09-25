@@ -7,9 +7,7 @@ public class P2292 {
         Scanner sc = new Scanner(System.in);
 
         int start = 2;
-        int end = 7;
-        int plus = 6;
-        int count = 2;
+        int count = 1;
         int N = sc.nextInt();
 
         if (N == 1) {
@@ -17,16 +15,12 @@ public class P2292 {
             return;
         }
 
-        while (true) {
-            if (start <= N && end >= N) {
-                System.out.println(count);
-                break;
-            }
-
+        // 시작값 = 6(n - 1) + 6(n - 1) ...
+        while (start <= N) {
+            start += 6 * count;
             count++;
-            plus += 6;
-            start = end + 1;
-            end += plus;
         }
+
+        System.out.println(count);
     }
 }
