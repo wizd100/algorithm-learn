@@ -29,69 +29,30 @@ public class P1018 {
             }
         }
 
-
         System.out.println(min);
     }
 
     public static int compareBoard(String[] board, int x, int y) {
-        int count = 0;
-        char[][] chessBoard = new char[8][8];
-        boolean whiteBlack = true; //true -> W, false -> B
+        int count1 = 0;
+        int count2 = 0;
+        String[] chessBoard1 = {"BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB"};
+        String[] chessBoard2 = {"WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW"};
 
-        //첫글자 확인
-        if (board[x].charAt(y) == 'B') {
-            whiteBlack = false;
-        }
-
-        //체스판 만들기
-        for (int i = 0; i < 8; i++) {
-            if (i >= 1) {
-                whiteBlack = !whiteBlack;
-            }
-            for (int j = 0; j < 8; j++) {
-                if (whiteBlack) {
-                    chessBoard[i][j] = 'W';
-                    whiteBlack = false;
-                } else {
-                    chessBoard[i][j] = 'B';
-                    whiteBlack = true;
+        for (int i = x; i < x + 8; i++) {
+            for (int j = y; j < y + 8; j++) {
+                if (board[i].charAt(j) != chessBoard1[i - x].charAt(j - y)) {
+                    count1++;
+                }
+                if (board[i].charAt(j) != chessBoard2[i - x].charAt(j - y)) {
+                    count2++;
                 }
             }
         }
 
-        /*for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(chessBoard[i][j]);
-            }
-            System.out.println();
-        }*/
-
-        System.out.println("start");
-        for (int i = x; i < x + 8; i++) {
-            for (int j = y; j < y + 8; j++) {
-                System.out.print(board[i].charAt(j));
-            }
-            System.out.println();
-        }
-        System.out.println(":");
-        for (int i = x; i < x + 8; i++) {
-            for (int j = y; j < y + 8; j++) {
-                System.out.print(chessBoard[i - x][j - y]);
-            }
-            System.out.println();
+        if (count1 > count2) {
+            return count2;
         }
 
-        for (int i = x; i < x + 8; i++) {
-            for (int j = y; j < y + 8; j++) {
-                if (board[i].charAt(j) != chessBoard[i - x][j - y]) {
-                    count++;
-                }
-            }
-        }
-        System.out.println(count);
-        System.out.println("end");
-
-
-        return count;
+        return count1;
     }
 }
