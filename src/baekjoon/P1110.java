@@ -10,7 +10,7 @@ public class P1110 {
         int count = 0;
 
         while (true) {
-            if (count == 0 && N != num) {
+            if (count != 0 && N == num) {
                 break;
             }
 
@@ -21,7 +21,7 @@ public class P1110 {
                 continue;
             }
 
-            int sum = num % 100 / 10 + num % 10;
+            int sum = num / 10 + num % 10;
             num = num % 10 * 10 + sum % 10;
             count++;
         }
