@@ -40,9 +40,23 @@ public class P9020 {
         int[] result = new int[2];
 
         for (int i = 0; i < prime.size(); i++) {
+            // i + j = n 일때 절반의 가까운값
+            if (i >  n / 2) {
+                break;
+            }
             for (int j = i; j < prime.size(); j++) {
+                if (j >  n / 2) {
+                    break;
+                }
                 if (prime.get(i) + prime.get(j) != n) {
                     continue;
+                }
+                // i - j = 0 이면 제일 최소값임으로 리턴
+                if (prime.get(j) - prime.get(i) == 0) {
+                    result[0] = prime.get(i);
+                    result[1] = prime.get(j);
+
+                    return result;
                 }
                 if (min > prime.get(j) - prime.get(i)) {
                     min = prime.get(j) - prime.get(i);
